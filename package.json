@@ -1,0 +1,22 @@
+{
+  "name": "gitbook",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wfatec/gitbook.git"
+  },
+  "author": "wfatec",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wfatec/gitbook/issues"
+  },
+  "homepage": "https://github.com/wfatec/gitbook#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
