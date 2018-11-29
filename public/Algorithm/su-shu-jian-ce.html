@@ -1,0 +1,355 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>素数检测 · GitBook</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 3.2.3">
+        
+        
+        
+    
+    <link rel="stylesheet" href="gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+        
+    
+    
+    <meta name="HandheldFriendly" content="true"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="gitbook/images/apple-touch-icon-precomposed-152.png">
+    <link rel="shortcut icon" href="gitbook/images/favicon.ico" type="image/x-icon">
+
+    
+    
+    <link rel="prev" href="fibonacci-shu-lie.html" />
+    
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    前言
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="bit-yun-suan.html">
+            
+                <a href="bit-yun-suan.html">
+            
+                    
+                    Bit运算
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="jie-cheng.html">
+            
+                <a href="jie-cheng.html">
+            
+                    
+                    阶乘
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="fibonacci-shu-lie.html">
+            
+                <a href="fibonacci-shu-lie.html">
+            
+                    
+                    Fibonacci数列
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.5" data-path="su-shu-jian-ce.html">
+            
+                <a href="su-shu-jian-ce.html">
+            
+                    
+                    素数检测
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="." >素数检测</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="&#x7D20;&#x6570;&#x68C0;&#x6D4B;">&#x7D20;&#x6570;&#x68C0;&#x6D4B;</h1>
+<p><a href="https://en.wikipedia.org/wiki/Prime_number" target="_blank">&#x7D20;&#x6570;</a>&#x662F;&#x6307;&#x53EA;&#x80FD;&#x88AB;1&#x548C;&#x672C;&#x8EAB;&#x6574;&#x9664;&#xFF0C;&#x4E14;&#x5927;&#x4E8E;1&#x7684;&#x81EA;&#x7136;&#x6570;&#xFF0C;&#x7D20;&#x6570;&#x7684;&#x68C0;&#x6D4B;&#x5373;&#x5224;&#x65AD;&#x8F93;&#x5165;&#x503C;&#x662F;&#x5426;&#x4E3A;&#x7D20;&#x6570;&#xFF0C;&#x53EF;&#x53C2;&#x8003;<a href="https://en.wikipedia.org/wiki/Primality_test" target="_blank">&#x7EF4;&#x57FA;&#x767E;&#x79D1;&#x7D20;&#x6570;&#x68C0;&#x6D4B;</a>&#x3002;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * @param {number} number
+ * @return {boolean}
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">trialDivision</span>(<span class="hljs-params">number</span>) </span>{
+  <span class="hljs-comment">// Check if number is integer.</span>
+  <span class="hljs-keyword">if</span> (number % <span class="hljs-number">1</span> !== <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">if</span> (number &lt;= <span class="hljs-number">1</span>) {
+    <span class="hljs-comment">// If number is less than one then it isn&apos;t prime by definition.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-keyword">if</span> (number &lt;= <span class="hljs-number">3</span>) {
+    <span class="hljs-comment">// All numbers from 2 to 3 are prime.</span>
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+  }
+
+  <span class="hljs-comment">// If the number is not divided by 2 then we may eliminate all further even dividers.</span>
+  <span class="hljs-keyword">if</span> (number % <span class="hljs-number">2</span> === <span class="hljs-number">0</span>) {
+    <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+  }
+
+  <span class="hljs-comment">// If there is no dividers up to square root of n then there is no higher dividers as well.</span>
+  <span class="hljs-keyword">const</span> dividerLimit = <span class="hljs-built_in">Math</span>.sqrt(number);
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> divider = <span class="hljs-number">3</span>; divider &lt;= dividerLimit; divider += <span class="hljs-number">2</span>) {
+    <span class="hljs-keyword">if</span> (number % divider === <span class="hljs-number">0</span>) {
+      <span class="hljs-keyword">return</span> <span class="hljs-literal">false</span>;
+    }
+  }
+
+  <span class="hljs-keyword">return</span> <span class="hljs-literal">true</span>;
+}
+</code></pre>
+<h3 id="&#x5229;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;">&#x5229;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</h3>
+<p>&#x68C0;&#x6D4B;&#x7D20;&#x6570;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53C2;&#x8003;&#x4E86;<a href="https://coolshell.cn/articles/2704.html" target="_blank">&#x68C0;&#x67E5;&#x7D20;&#x6570;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;</a> &#x4EE5;&#x53CA; <a href="http://blog.stevenlevithan.com/archives/algebra-with-regexes" target="_blank">Solving Algebraic Equations Using Regular Expressions</a>&#xFF1A;</p>
+<pre><code class="lang-text">/^1?$|^(11+?)\1+$/
+</code></pre>
+<ul>
+<li><strong>&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#xFF1A;/^1?$/</strong>&#xFF0C; &#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x8868;&#x793A;&#x5339;&#x914D;&#x201C;&#x7A7A;&#x4E32;&#x201D;&#x4EE5;&#x53CA;&#x5B57;&#x4E32;&#x4E2D;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x201C;1&#x201D;&#x7684;&#x5B57;&#x7B26;&#x4E32;&#x3002;</li>
+<li><p><strong>&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#xFF1A;/^(11+?)\1+$/</strong>&#xFF0C;&#x8FD9;&#x4E2A;&#x90E8;&#x5206;&#x662F;&#x6574;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x5173;&#x952E;&#x90E8;&#x5206;&#x3002;&#x5176;&#x53EF;&#x4EE5;&#x5206;&#x6210;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;<strong>(11+?)</strong> &#x548C;<strong>\1+$</strong>&#xFF0C;&#x524D;&#x534A;&#x90E8;&#x5F88;&#x7B80;&#x5355;&#x4E86;&#xFF0C;&#x5339;&#x914D;&#x4EE5;&#x201C;11&#x201D;&#x5F00;&#x5934;&#x7684;&#x5E76;&#x91CD;&#x590D;0&#x6216;n&#x4E2A;1&#x7684;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x90E8;&#x5206;&#x610F;&#x601D;&#x662F;&#x628A;&#x524D;&#x534A;&#x90E8;&#x5206;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x5B57;&#x4E32;&#x53BB;&#x5339;&#x914D;&#x8FD8;&#x5269;&#x4E0B;&#x7684;&#x5B57;&#x7B26;&#x4E32;1&#x6B21;&#x6216;&#x591A;&#x6B21;&#xFF08;&#x8FD9;&#x53E5;&#x8BDD;&#x7684;&#x610F;&#x601D;&#x662F;&#x2014;&#x2014;&#x5269;&#x4F59;&#x7684;&#x5B57;&#x4E32;&#x7684;1&#x7684;&#x4E2A;&#x6570;&#x8981;&#x662F;&#x524D;&#x9762;&#x5B57;&#x4E32;1&#x4E2A;&#x6570;&#x7684;&#x6574;&#x6570;&#x500D;&#xFF09;&#x3002;</p>
+<p>&#x53EF;&#x89C1;&#x8FD9;&#x4E2A;&#x6B63;&#x89C4;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x662F;&#x53D6;&#x975E;&#x7D20;&#x6570;&#xFF0C;&#x8981;&#x5F97;&#x5230;&#x7D20;&#x6570;&#x8FD8;&#x5F97;&#x8981;&#x5BF9;&#x6574;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x6C42;&#x53CD;&#x3002;</p>
+</li>
+</ul>
+<p><strong>&#x793A;&#x4F8B;&#x4E00;&#xFF1A;&#x5224;&#x65AD;&#x81EA;&#x7136;&#x6570;8</strong>&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x77E5;&#x9053;&#xFF0C;8&#x8F6C;&#x6210;&#x6211;&#x4EEC;&#x7684;&#x683C;&#x5F0F;&#x5C31;&#x662F;&#x201C;11111111&#x201D;&#xFF0C;&#x5BF9;&#x4E8E;<strong>(11+?)</strong>&#xFF0C;&#x5176;&#x5339;&#x914D;&#x4E86;&#x201C;11&#x201D;&#xFF0C;&#x4E8E;&#x662F;&#x8FD8;&#x5269;&#x4E0B;&#x201C;111111&#x201D;&#xFF0C;&#x800C;<strong>\1+$</strong>&#x6B63;&#x597D;&#x5339;&#x914D;&#x4E86;&#x5269;&#x4E0B;&#x7684;&#x201C;111111&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#xFF0C;&#x201C;11&#x201D;&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x5728;&#x201C;111111&#x201D;&#x51FA;&#x73B0;&#x4E86;&#x4E09;&#x6B21;&#xFF0C;&#x7B26;&#x5408;&#x6A21;&#x5F0F;&#x5339;&#x914D;&#xFF0C;&#x8FD4;&#x56DE;true&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5339;&#x914D;&#x6210;&#x529F;&#xFF0C;&#x4E8E;&#x662F;&#x8FD9;&#x4E2A;&#x6570;&#x4E0D;&#x662F;&#x8D28;&#x6570;&#x3002;</p>
+<p><strong>&#x793A;&#x4F8B;&#x4E8C;&#xFF1A;&#x5224;&#x65AD;&#x81EA;&#x7136;&#x6570;11</strong>&#x3002;&#x8F6C;&#x6210;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x683C;&#x5F0F;&#x662F;&#x201C;11111111111&#x201D;&#xFF08;&#x5341;&#x4E00;&#x4E2A;1&#xFF09;&#xFF0C;&#x5BF9;&#x4E8E;<strong>(11+?)</strong>&#xFF0C;&#x5176;&#x5339;&#x914D;&#x4E86;&#x201C;11&#x201D;&#xFF08;&#x524D;&#x4E24;&#x4E2A;1&#xFF09;&#xFF0C;&#x8FD8;&#x5269;&#x4E0B;&#x201C;111111111&#x201D;&#xFF08;&#x4E5D;&#x4E2A;1&#xFF09;&#xFF0C;&#x800C;<strong>\1+$</strong>&#x65E0;&#x6CD5;&#x4E3A;&#x201C;11&#x201D;&#x5339;&#x914D;&#x90A3;&#x201C;&#x4E5D;&#x4E2A;1&#x201D;&#xFF0C;&#x56E0;&#x4E3A;&#x201C;11&#x201D;&#x8FD9;&#x4E2A;&#x6A21;&#x5F0F;&#x5E76;&#x6CA1;&#x6709;&#x5728;&#x201C;&#x4E5D;&#x4E2A;1&#x201D;&#x8FD9;&#x4E2A;&#x4E32;&#x4E2D;&#x6B63;&#x597D;&#x51FA;&#x73B0;N&#x6B21;&#x3002;&#x4E8E;&#x662F;&#xFF0C;&#x6211;&#x4EEC;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x5F15;&#x64CE;&#x4F1A;&#x5C1D;&#x8BD5;&#x4E0B;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x5148;&#x5339;&#x914D;&#x201C;111&#x201D;&#xFF08;&#x524D;&#x4E09;&#x4E2A;1&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x628A;&#x201C;111&#x201D;&#x4F5C;&#x4E3A;&#x6A21;&#x5F0F;&#x53BB;&#x5339;&#x914D;&#x5269;&#x4E0B;&#x7684;&#x201C;11111111&#x201D;&#xFF08;&#x516B;&#x4E2A;1&#xFF09;&#xFF0C;&#x5F88;&#x660E;&#x663E;&#xFF0C;&#x90A3;&#x201C;&#x516B;&#x4E2A;1&#x201D;&#x5E76;&#x6CA1;&#x6709;&#x5339;&#x914D;&#x201C;&#x4E09;&#x4E2A;1&#x201D;&#x591A;&#x6B21;&#x3002;&#x6240;&#x4EE5;&#xFF0C;&#x5F15;&#x64CE;&#x4F1A;&#x7EE7;&#x7EED;&#x5411;&#x4E0B;&#x5C1D;&#x8BD5;&#x2026;&#x2026;&#x76F4;&#x81F3;&#x5C1D;&#x8BD5;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x90FD;&#x65E0;&#x6CD5;&#x5339;&#x914D;&#x6210;&#x529F;&#x3002;&#x6240;&#x4EE5;11&#x662F;&#x7D20;&#x6570;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x793A;&#x4F8B;&#x4E8C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5F97;&#x5230;&#x8FD9;&#x6837;&#x7684;&#x7B49;&#x4EF7;&#x6570;&#x7B97;&#x7B97;&#x6CD5;&#xFF0C;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4F1A;&#x5339;&#x914D;&#x8FD9;&#x82E5;&#x5E72;&#x4E2A;1&#x4E2D;&#x6709;&#x6CA1;&#x6709;&#x51FA;&#x73B0;&#x201C;&#x4E8C;&#x4E2A;1&#x201D;&#x7684;&#x6574;&#x6570;&#x500D;&#xFF0C;&#x201C;&#x4E09;&#x4E2A;1&#x201D;&#x7684;&#x6574;&#x6570;&#x500D;&#xFF0C;&#x201C;&#x56DB;&#x4E2A;1&#x201D;&#x7684;&#x6574;&#x6570;&#x500D;&#x2026;&#x2026;&#xFF0C;&#x800C;&#xFF0C;&#x8FD9;&#x6B63;&#x597D;&#x662F;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7684;&#x7B97;&#x7D20;&#x6570;&#x7684;&#x7B97;&#x6CD5;&#x3002;&#x73B0;&#x5728;&#x5927;&#x5BB6;&#x660E;&#x767D;&#x4E86;&#x5427;&#x3002;</p>
+<p>&#x6839;&#x636E;<a href="https://www.cnblogs.com/52cik/p/js-regular-prime.html" target="_blank">js &#x6B63;&#x5219;&#x4E4B; &#x68C0;&#x6D4B;&#x7D20;&#x6570;</a> &#x4E2D;&#x6240;&#x8FF0;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x4E0D;&#x5FC5;&#x8981;&#x68C0;&#x6D4B; 0 1 &#x4E4B;&#x7C7B;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x6839;&#x636E;&#x7D20;&#x6570;&#x7684;&#x89E3;&#x91CA;&#xFF0C;&#x7D20;&#x6570;&#x662F;&#x4ECE; 2 &#x5F00;&#x59CB;&#x7684;&#x3002;&#x6240;&#x4EE5;&#x53EA;&#x8981;&#x52A0;&#x4E00;&#x4E2A;&#x5224;&#x65AD;&#x6761;&#x4EF6; n &lt; 2 &#x7684;&#x90FD;&#x4E0D;&#x662F;&#x7D20;&#x6570;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x5219;&#x7528; /^(11+?)\1+$/ &#x8FDB;&#x884C;&#x9A8C;&#x8BC1;&#x5373;&#x53EF;&#xFF0C;<br>&#x4E0D;&#x4EC5;&#x63D0;&#x5347;&#x4E86;&#x6548;&#x7387;&#xFF0C;&#x800C;&#x4E14;&#x9632;&#x6B62;&#x4F20;&#x5165;&#x8D1F;&#x6570;&#x800C;&#x62A5;&#x9519;&#x3002;</p>
+<p>&#x6700;&#x7EC8;&#x5B9E;&#x73B0;&#x4E3A;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * &#x5224;&#x65AD;&#x662F;&#x5426;&#x662F;&#x7D20;&#x6570;
+ * @param  {Number} n  &#x8981;&#x5224;&#x65AD;&#x662F;&#x6570;&#x5B57;
+ * @return {Boolean}   &#x8FD4;&#x56DE; true|false
+ */</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">default</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">trialDivision</span>(<span class="hljs-params">number</span>) </span>{
+  <span class="hljs-keyword">return</span> number &lt; <span class="hljs-number">2</span> ? <span class="hljs-literal">false</span> : !<span class="hljs-regexp">/^(11+?)\1+$/</span>.test(<span class="hljs-built_in">Array</span>(number + <span class="hljs-number">1</span>).join(<span class="hljs-string">&apos;1&apos;</span>));
+}
+</code></pre>
+<p>&#x82E5;&#x60F3;&#x83B7;&#x53D6;&#x67D0;&#x4E2A;&#x8303;&#x56F4;&#x5185;&#x7684;&#x6240;&#x6709;&#x7D20;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x8FD9;&#x6837;&#xFF1A;</p>
+<pre><code class="lang-javascript"><span class="hljs-comment">/**
+ * &#x904D;&#x5386;&#x7D20;&#x6570;
+ * @param  {Number} max &#x904D;&#x5386; 2-max &#x4E4B;&#x95F4;&#x7684;&#x7D20;&#x6570;
+ * @return {Array}      &#x8FD4;&#x56DE; 2-max &#x4E4B;&#x95F4;&#x6240;&#x6709;&#x7D20;&#x6570;
+ */</span>
+<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">prime</span>(<span class="hljs-params">max</span>) </span>{
+    <span class="hljs-keyword">var</span> re = <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">&apos;^(11+?)\\1+$&apos;</span>), <span class="hljs-comment">// &#x68C0;&#x6D4B;&#x8D28;&#x6570;&#x6B63;&#x5219;</span>
+        str = <span class="hljs-string">&apos;1&apos;</span>, <span class="hljs-comment">// &#x6839;&#x636E;&#x5F53;&#x524D; i &#x751F;&#x6210;&#x5BF9;&#x5E94;&#x4E2A;&#x6570; 1 </span>
+        i = <span class="hljs-number">1</span>, <span class="hljs-comment">// &#x8BA1;&#x6570;&#x5668;</span>
+        ret = []; <span class="hljs-comment">// &#x8D28;&#x6570;&#x7ED3;&#x679C;&#x96C6;</span>
+    <span class="hljs-keyword">while</span> (max &gt; i++)
+        re.test(str += <span class="hljs-string">&apos;1&apos;</span>) || ret.push(i);
+    <span class="hljs-keyword">return</span> ret;
+}
+<span class="hljs-keyword">var</span> arr = prime(<span class="hljs-number">100</span>);
+<span class="hljs-built_in">console</span>.log(arr);
+</code></pre>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="fibonacci-shu-lie.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Fibonacci数列">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"title":"素数检测","level":"1.5","depth":1,"previous":{"title":"Fibonacci数列","level":"1.4","depth":1,"path":"fibonacci-shu-lie.md","ref":"fibonacci-shu-lie.md","articles":[]},"dir":"ltr"},"config":{"gitbook":"*","theme":"default","variables":{},"plugins":[],"pluginsConfig":{"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"}},"file":{"path":"su-shu-jian-ce.md","mtime":"2018-10-22T04:54:44.416Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2018-11-29T05:31:56.890Z"},"basePath":".","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="gitbook/gitbook.js"></script>
+    <script src="gitbook/theme.js"></script>
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
